@@ -1,12 +1,15 @@
+require('./models/User');
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(authRoutes);
 
-const mongoUri = 'mongodb+srv://admin:1T0eKCLUUAh3ykD2@cluster0.ksw13.mongodb.net/sample_mflix?retryWrites=true&w=majority';
+const mongoUri = 'mongodb+srv://admin:1T0eKCLUUAh3ykD2@cluster0.ksw13.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useCreateIndex: true
